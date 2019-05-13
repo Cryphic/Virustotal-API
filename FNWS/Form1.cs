@@ -32,6 +32,7 @@ namespace FNWS
         /// </summary>
         public byte[] Eicar;
 
+        public string[] LoginSplit;
         /// <summary>
         /// Initializes a new instance of the <see cref="Form1"/> class.
         /// </summary>
@@ -39,12 +40,12 @@ namespace FNWS
         {
             
             InitializeComponent();
-            /* Materialskin --IGNORE-- */
+            
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Red900, Primary.Red900, Primary.BlueGrey500, Accent.Red400, TextShade.BLACK);
-            /* Materialskin --IGNORE-- */
+        
         }
 
         /// <summary>
@@ -94,7 +95,7 @@ namespace FNWS
             foreach (var mDef in td.Methods)
             {
                 //loopataan metodit   
-                MessageBox.Show(mDef.Name);
+               // MessageBox.Show(mDef.Name);
                 foreach (string i in items) //loopataan items lista
                 {
                     if (mDef.Name.Contains(i)) //jos metodi löytyy items listasta lisää toiseen listaan 
@@ -153,7 +154,7 @@ namespace FNWS
 
             if (report.Positives >= 3)
             {
-                WbRequest.URLRequest("https://cryphic.gq/vtotal.php?sha256=" + report.SHA256 + "&date=" + report.ScanDate +
+                WbRequest.URLRequest("https://cryphic.gq/vtotal.php?id="+ LoginSplit[1]+ "&sha256=" + report.SHA256 + "&date=" + report.ScanDate +
                            "&file=" + filu);
             }
         }
@@ -228,7 +229,7 @@ namespace FNWS
             Eicar = new byte[stream.Length];
             stream.Read(Eicar, 0, Eicar.Length);
             stream.Close();
-            submit_file();
+            submit_file(listView2.SelectedItems[0].SubItems[0].Text);
         }
 
         /// <summary>
@@ -332,7 +333,7 @@ namespace FNWS
         /// <param name="e">The e<see cref="DragEventArgs"/></param>
         private void panel1_DragEnter(object sender, DragEventArgs e)
         {
-
+            e.Effect = DragDropEffects.Copy;
         }
 
         private void MaterialTabSelector1_Click(object sender, EventArgs e)
@@ -348,9 +349,11 @@ namespace FNWS
                 Thread.CurrentThread.IsBackground = true;
                 var login = WbRequest.Login(UserField.Text, PassField.Text, new Uri("https://www.cryphic.gq/Authentication/login_submit.php"));
            
-            statusLbl.Text = "Status: " + login;
-            if (login == @"You are now logged in")
+            
+            if (login == @"Logged 3")
             {
+                LoginSplit = login.Split(null);
+                statusLbl.Text = @"Status: Logged In successfully";
                 UserField.Enabled = false;
                 PassField.Enabled = false;
                 loginBtn.Enabled = false;
@@ -361,6 +364,11 @@ namespace FNWS
         }
 
         private void MaterialLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

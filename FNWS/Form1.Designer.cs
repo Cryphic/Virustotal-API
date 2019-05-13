@@ -37,13 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.statusLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.PassField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.loginBtn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.UserField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -57,11 +50,18 @@
             this.Result = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Scan_date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SHA256 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.statusLbl = new MaterialSkin.Controls.MaterialLabel();
+            this.PassField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.loginBtn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.UserField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.Lview2.SuspendLayout();
             this.materialTabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -117,6 +117,7 @@
             // 
             // materialTabControl1
             // 
+            this.materialTabControl1.AllowDrop = true;
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Depth = 0;
@@ -127,6 +128,129 @@
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(744, 473);
             this.materialTabControl1.TabIndex = 13;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.listView2);
+            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.listView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(736, 447);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Main";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.AllowDrop = true;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::FNWS.Properties.Resources.drop_files_here_extra;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(8, 159);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(452, 108);
+            this.panel1.TabIndex = 16;
+            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
+            this.panel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(8, 296);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(465, 160);
+            this.listBox1.TabIndex = 15;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            // 
+            // listView2
+            // 
+            this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.prosessi,
+            this.sijainti});
+            this.listView2.ContextMenuStrip = this.Lview2;
+            this.listView2.FullRowSelect = true;
+            this.listView2.GridLines = true;
+            this.listView2.Location = new System.Drawing.Point(479, 0);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(261, 453);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // prosessi
+            // 
+            this.prosessi.Text = "Process";
+            this.prosessi.Width = 115;
+            // 
+            // sijainti
+            // 
+            this.sijainti.Text = "Path";
+            this.sijainti.Width = 141;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(8, 273);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(136, 17);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Näytä .NET strings lista";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Location = new System.Drawing.Point(150, 274);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Tupla klikkaa IP-osoitetta.";
+            // 
+            // listView1
+            // 
+            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Engine,
+            this.Result,
+            this.Scan_date,
+            this.SHA256});
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(483, 153);
+            this.listView1.TabIndex = 13;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // Engine
+            // 
+            this.Engine.Text = "Engine";
+            this.Engine.Width = 115;
+            // 
+            // Result
+            // 
+            this.Result.Text = "Result";
+            this.Result.Width = 141;
+            // 
+            // Scan_date
+            // 
+            this.Scan_date.Text = "Scan date";
+            this.Scan_date.Width = 102;
+            // 
+            // SHA256
+            // 
+            this.SHA256.Text = "SHA256";
+            this.SHA256.Width = 119;
             // 
             // tabPage1
             // 
@@ -233,129 +357,9 @@
             this.UserField.TabIndex = 15;
             this.UserField.UseSystemPasswordChar = false;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Controls.Add(this.listView2);
-            this.tabPage2.Controls.Add(this.checkBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.listView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(736, 447);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Main";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.AllowDrop = true;
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::FNWS.Properties.Resources.drop_files_here_extra;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(8, 159);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(452, 108);
-            this.panel1.TabIndex = 16;
-            this.panel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.panel1_DragDrop);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(8, 296);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(465, 160);
-            this.listBox1.TabIndex = 15;
-            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
-            // 
-            // listView2
-            // 
-            this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.prosessi,
-            this.sijainti});
-            this.listView2.ContextMenuStrip = this.Lview2;
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(479, 0);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(261, 453);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // prosessi
-            // 
-            this.prosessi.Text = "Process";
-            this.prosessi.Width = 115;
-            // 
-            // sijainti
-            // 
-            this.sijainti.Text = "Path";
-            this.sijainti.Width = 141;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(8, 273);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(136, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Näytä .NET strings lista";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label1.Location = new System.Drawing.Point(150, 274);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Tupla klikkaa IP-osoitetta.";
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Engine,
-            this.Result,
-            this.Scan_date,
-            this.SHA256});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(483, 153);
-            this.listView1.TabIndex = 13;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // Engine
-            // 
-            this.Engine.Text = "Engine";
-            this.Engine.Width = 115;
-            // 
-            // Result
-            // 
-            this.Result.Text = "Result";
-            this.Result.Width = 141;
-            // 
-            // Scan_date
-            // 
-            this.Scan_date.Text = "Scan date";
-            this.Scan_date.Width = 102;
-            // 
-            // SHA256
-            // 
-            this.SHA256.Text = "SHA256";
-            this.SHA256.Width = 119;
-            // 
             // materialTabSelector1
             // 
+            this.materialTabSelector1.AllowDrop = true;
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Location = new System.Drawing.Point(0, 64);
@@ -385,10 +389,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Lview2.ResumeLayout(false);
             this.materialTabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
